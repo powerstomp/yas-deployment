@@ -14,7 +14,6 @@ resources:
     - crds/keycloak-crds.yaml
     - crds/postgres-operator-crds.yaml
     - crds/grafana-operator-crds.yaml
-    - crds/opentelemetry-crds.yaml
     - crds/kiali-crds.yaml
 
     # Operators — Wave -1
