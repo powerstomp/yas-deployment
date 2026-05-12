@@ -12,8 +12,8 @@ ARGO_NAMESPACE="argocd"
 ARGO_VERSION="v2.14.0"  # check latest at https://github.com/argoproj/argo-cd/releases
 
 echo "=== Step 1: Install ArgoCD ==="
-kubectl create namespace "$ARGO_NAMESPACE" --dry-run=client -o yaml | kubectl apply -f -
-kubectl apply -n "$ARGO_NAMESPACE" -f "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
+kubectl create namespace "$ARGO_NAMESPACE"
+kubectl apply -n "$ARGO_NAMESPACE" --server-side --force-conflicts -f "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
 
 echo "Waiting for ArgoCD components to be ready..."
 kubectl wait --for=condition=Available -n "$ARGO_NAMESPACE" deployment/argocd-server --timeout=120s
