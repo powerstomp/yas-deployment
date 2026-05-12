@@ -1,62 +1,60 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # Projects
-  - projects/infrastructure.yaml
-  - projects/staging.yaml
-  - projects/dev.yaml
+    # Projects
+    - projects/infrastructure.yaml
+    - projects/staging.yaml
+    - projects/dev.yaml
 
-  # CRDs — Wave -2
-  - crds/traefik-crd.yaml
-  - crds/cert-manager-crds.yaml
-  - crds/strimzi-crds.yaml
-  - crds/prometheus-crds.yaml
-  - crds/istio-crds.yaml
-  - crds/eck-crds.yaml
-  - crds/keycloak-crds.yaml
-  - crds/postgres-operator-crds.yaml
-  - crds/grafana-operator-crds.yaml
-  - crds/opentelemetry-crds.yaml
-  - crds/kiali-crds.yaml
+    # CRDs — Wave -2
+    - crds/cert-manager-crds.yaml
+    - crds/prometheus-crds.yaml
+    - crds/istio-crds.yaml
+    - crds/eck-crds.yaml
+    - crds/keycloak-crds.yaml
+    - crds/postgres-operator-crds.yaml
+    - crds/grafana-operator-crds.yaml
+    - crds/opentelemetry-crds.yaml
+    - crds/kiali-crds.yaml
 
-  # Operators — Wave -1
-  - operators/cert-manager.yaml
-  - operators/strimzi.yaml
-  - operators/postgres-operator.yaml
-  - operators/eck-operator.yaml
-  - operators/istio-base.yaml
-  - operators/kiali-operator.yaml
-  - operators/grafana-operator.yaml
-  - operators/keycloak-operator.yaml
-  - operators/opentelemetry-operator.yaml
-  - operators/kube-prometheus-stack.yaml
+    # Operators — Wave -1
+    - operators/cert-manager.yaml
+    - operators/strimzi.yaml
+    - operators/postgres-operator.yaml
+    - operators/eck-operator.yaml
+    - operators/istio-base.yaml
+    - operators/kiali-operator.yaml
+    - operators/grafana-operator.yaml
+    - operators/keycloak-operator.yaml
+    - operators/opentelemetry-operator.yaml
+    - operators/kube-prometheus-stack.yaml
 
-  # Infrastructure services — Wave 0
-  - services/kafka-cluster.yaml
-  - services/elasticsearch.yaml
-  - services/redis.yaml
-  - services/postgres.yaml
-  - services/pgadmin.yaml
-  - services/zookeeper.yaml
-  - services/keycloak.yaml
-  - coredns-hosts.yaml
+    # Infrastructure services — Wave 0
+    - services/kafka-cluster.yaml
+    - services/elasticsearch.yaml
+    - services/redis.yaml
+    - services/postgres.yaml
+    - services/pgadmin.yaml
+    - services/zookeeper.yaml
+    - services/keycloak.yaml
+    - coredns-hosts.yaml
 
-  # Service mesh — Wave 1
-  - mesh/istiod.yaml
-  - mesh/istio-cni.yaml
-  - mesh/ztunnel.yaml
-  - mesh/kiali.yaml
-  - peer-authentication.yaml
-  - istio-monitoring.yaml
+    # Service mesh — Wave 1
+    - mesh/istiod.yaml
+    - mesh/istio-cni.yaml
+    - mesh/ztunnel.yaml
+    - mesh/kiali.yaml
+    - peer-authentication.yaml
+    - istio-monitoring.yaml
 
-  # Observability — Wave 2
-  - observability/loki.yaml
-  - observability/promtail.yaml
-  - observability/tempo.yaml
-  - observability/grafana.yaml
-  - observability/opentelemetry.yaml
-  - observability/akhq.yaml
+    # Observability — Wave 2
+    - observability/loki.yaml
+    - observability/promtail.yaml
+    - observability/tempo.yaml
+    - observability/grafana.yaml
+    - observability/opentelemetry.yaml
+    - observability/akhq.yaml
 
-  # Environments — Wave 3
-  - environments/staging/application.yaml
-  - environments/dev/application.yaml
+    # Environments — Wave 3
+    - environments/staging/application.yaml
+    - environments/dev/application.yaml
