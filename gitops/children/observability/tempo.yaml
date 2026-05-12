@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tempo
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infrastructure
+  source:
+    chart: tempo
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 1.24.4
+    helm:
+      values: |
+        tempo:
+          metricsGenerator:
+            enabled: true
+            remoteWriteUrl: "http://prometheus-kube-prometheus-prometheus:9090/api/v1/write"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

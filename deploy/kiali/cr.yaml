@@ -1,0 +1,26 @@
+apiVersion: kiali.io/v1alpha1
+kind: Kiali
+metadata:
+  name: kiali
+  namespace: istio-system
+spec:
+  auth:
+    strategy: anonymous
+  deployment:
+    cluster_wide_access: true
+    instance_name: kiali
+    replicas: 1
+    view_only_mode: false
+    ingress:
+      enabled: true
+      class_name: traefik
+  server:
+    web_root: /
+    web_fqdn: kiali.yas.local.com
+    port: 20001
+  external_services:
+    grafana:
+      url: http://grafana.yas.local.com
+      in_cluster_url: http://prometheus-grafana.observability
+    prometheus:
+      url: http://prometheus-kube-prometheus-prometheus.observability:9090

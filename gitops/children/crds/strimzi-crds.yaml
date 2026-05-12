@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: strimzi-crds
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infrastructure
+  source:
+    chart: strimzi-kafka-operator
+    repoURL: https://strimzi.io/charts
+    targetRevision: 0.35.1
+    helm:
+      values: |
+        # Minimal install — just enough to get CRDs registered
+        watchNamespaces: []
+        watchAnyNamespace: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kafka
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+      - ServerSideApply=true

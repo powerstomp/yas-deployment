@@ -1,0 +1,9 @@
+hostname: grafana.yas.local.com
+grafana:
+    username: admin
+    password: admin
+    assertNoLeakedSecrets: false
+postgresql:
+    url: postgresql.postgres:5432
+    username: yasadminuser
+    password: admin

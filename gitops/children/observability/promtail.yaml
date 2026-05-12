@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: promtail
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infrastructure
+  source:
+    chart: promtail
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 6.17.1
+    helm:
+      values: |
+        config:
+          clients:
+            - url: http://loki-gateway/loki/api/v1/push
+          snippets:
+            pipelineStages:
+              - cri: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

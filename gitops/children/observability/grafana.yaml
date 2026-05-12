@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infrastructure
+  source:
+    repoURL: https://github.com/powerstomp/yas-deployment.git
+    targetRevision: HEAD
+    path: deploy/observability/grafana
+    helm:
+      values: |
+        hostname: grafana.yas.local.com
+        grafana:
+          username: admin
+          password: admin
+        postgresql:
+          username: yasadminuser
+          password: admin
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

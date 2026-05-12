@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres-operator-crds
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infrastructure
+  source:
+    chart: postgres-operator
+    repoURL: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
+    targetRevision: 1.15.1
+    helm:
+      values: |
+        # CRDs-only: scale operator to 0
+        replicaCount: 0
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: postgres
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+      - ServerSideApply=true

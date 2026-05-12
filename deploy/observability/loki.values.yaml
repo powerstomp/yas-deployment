@@ -1,0 +1,41 @@
+gateway:
+    readinessProbe:
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        timeoutSeconds: 5
+        failureThreshold: 3
+
+write:
+    replicas: 1
+read:
+    replicas: 1
+backend:
+    replicas: 1
+loki:
+    commonConfig:
+        replication_factor: 1
+    auth_enabled: false
+    limits_config:
+      ingestion_rate_mb: 100
+      ingestion_burst_size_mb: 200
+    schemaConfig:
+        configs:
+            - from: "2026-01-01"
+              store: tsdb
+              object_store: filesystem
+              schema: v13
+              index:
+                  prefix: index_
+                  period: 24h
+test:
+    enabled: false
+storage:
+    type: "filesystem"
+minio:
+    enabled: true
+
+monitoring:
+    selfMonitoring:
+        enabled: false
+        grafanaAgent:
+            installOperator: false

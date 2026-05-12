@@ -1,0 +1,28 @@
+backend:
+    image:
+        repository: ghcr.io/powerstomp/yas-media
+        tag: latest
+
+    nameOverride: media
+    fullnameOverride: media
+    databaseName: media
+    ingress:
+        enabled: true
+        host: api.yas.local.com
+        path: /media
+        pathType: ImplementationSpecific
+    extraVolumes:
+        - name: media-application
+          configMap:
+              name: media-application-configmap
+        - name: images
+          hostPath:
+            path: /home/admin/yas/sampledata/images
+            type: Directory
+    extraVolumeMounts:
+        - name: media-application
+          mountPath: /opt/yas/media
+        - name: images
+          mountPath: /images
+    extraApplicationConfigPaths:
+        - /opt/yas/media/media-application.yaml

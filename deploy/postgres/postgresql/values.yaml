@@ -1,0 +1,13 @@
+username: yasadminuser
+password: admin
+replicas: 1
+postgresqlVersion: "15"
+volumeSize: "10Gi"
+maxConnections: "500"
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 2000m
+    memory: 2Gi
