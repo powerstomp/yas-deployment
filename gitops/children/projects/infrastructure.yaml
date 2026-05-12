@@ -13,6 +13,7 @@ spec:
         - "https://istio-release.storage.googleapis.com/charts"
         - "https://helm.elastic.co"
         - "https://opensource.zalando.com/postgres-operator/charts/postgres-operator"
+        - "https://grafana.github.io/helm-charts"
         - "oci://ghcr.io/grafana-operator/helm-charts/grafana-operator"
         - "https://open-telemetry.github.io/opentelemetry-helm-charts"
         - "https://kiali.org/helm-charts"
