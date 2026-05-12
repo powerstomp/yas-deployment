@@ -1,41 +1,41 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: coredns-hosts-patch
-  namespace: kube-system
-  annotations:
-    argocd.argoproj.io/hook: PostSync
+    name: coredns-hosts-patch
+    namespace: kube-system
+    annotations:
+        argocd.argoproj.io/hook: PostSync
 spec:
-  template:
-    spec:
-      serviceAccountName: coredns-hosts-patcher
-      restartPolicy: Never
-      containers:
-        - name: kubectl
-          image: bitnami/kubectl:1.32.0
-          command:
-            - /bin/bash
-            - -ec
-            - |
-              TRAEFIK_IP=""
-              for i in $(seq 1 12); do
-                TRAEFIK_IP=$(kubectl get svc -n kube-system traefik -o jsonpath='{.spec.clusterIP}' 2>/dev/null || true)
-                if [ -n "$TRAEFIK_IP" ]; then
-                  break
-                fi
-                echo "Waiting for Traefik service... attempt $i"
-                sleep 10
-              done
-              if [ -z "$TRAEFIK_IP" ]; then
-                echo "ERROR: Traefik service not found in kube-system after 120 seconds"
-                exit 1
-              fi
+    backoffLimit: 2
+    template:
+        spec:
+            serviceAccountName: coredns-hosts-patcher
+            restartPolicy: Never
+            containers:
+                - name: kubectl
+                  image: bitnami/kubectl:1.32.0
+                  command:
+                      - /bin/bash
+                      - -ec
+                      - |
+                          TRAEFIK_IP=""
+                          for i in $(seq 1 12); do
+                            TRAEFIK_IP=$(kubectl get svc -n kube-system traefik -o jsonpath='{.spec.clusterIP}' 2>/dev/null || true)
+                            if [ -n "$TRAEFIK_IP" ]; then
+                              break
+                            fi
+                            echo "Waiting for Traefik service... attempt $i"
+                            sleep 10
+                          done
+                          if [ -z "$TRAEFIK_IP" ]; then
+                            echo "ERROR: Traefik service not found in kube-system after 120 seconds"
+                            exit 1
+                          fi
 
-              NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
-              NODE_NAME=$(kubectl get nodes -o jsonpath='{.items[0].metadata.name}')
+                          NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+                          NODE_NAME=$(kubectl get nodes -o jsonpath='{.items[0].metadata.name}')
 
-              kubectl patch configmap -n kube-system coredns --type=merge \
-                -p "{\"data\":{\"NodeHosts\":\"${NODE_IP} ${NODE_NAME}\n# *.yas.local.com wildcard aliases\n${TRAEFIK_IP} identity.yas.local.com storefront.yas.local.com backoffice.yas.local.com api.yas.local.com pgadmin.yas.local.com akhq.yas.local.com kibana.yas.local.com grafana.yas.local.com kiali.yas.local.com api.dev.yas.local.com backoffice.dev.yas.local.com storefront.dev.yas.local.com api.staging.yas.local.com backoffice.staging.yas.local.com storefront.staging.yas.local.com\"}}"
+                          kubectl patch configmap -n kube-system coredns --type=merge \
+                            -p "{\"data\":{\"NodeHosts\":\"${NODE_IP} ${NODE_NAME}\n# *.yas.local.com wildcard aliases\n${TRAEFIK_IP} identity.yas.local.com storefront.yas.local.com backoffice.yas.local.com api.yas.local.com pgadmin.yas.local.com akhq.yas.local.com kibana.yas.local.com grafana.yas.local.com kiali.yas.local.com api.dev.yas.local.com backoffice.dev.yas.local.com storefront.dev.yas.local.com api.staging.yas.local.com backoffice.staging.yas.local.com storefront.staging.yas.local.com\"}}"
 
-              kubectl rollout restart deployment -n kube-system coredns
-      backoffLimit: 2
+                          kubectl rollout restart deployment -n kube-system coredns
