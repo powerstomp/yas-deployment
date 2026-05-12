@@ -1,30 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: infrastructure
-  namespace: argocd
+    name: infrastructure
+    namespace: argocd
 spec:
-  description: Shared infrastructure components (CRDs, operators, databases, service mesh, observability)
-  sourceRepos:
-    - 'https://github.com/powerstomp/yas-deployment.git'
-    - 'https://charts.jetstack.io'
-    - 'https://strimzi.io/charts'
-    - 'https://prometheus-community.github.io/helm-charts'
-    - 'https://istio-release.storage.googleapis.com/charts'
-    - 'https://helm.elastic.co'
-    - 'https://opensource.zalando.com/postgres-operator/charts/postgres-operator'
-    - 'https://grafana.github.io/helm-charts'
-    - 'https://open-telemetry.github.io/opentelemetry-helm-charts'
-    - 'https://kiali.org/helm-charts'
-    - 'https://traefik.github.io/charts'
-    - 'https://akhq.io/'
-    - 'https://charts.bitnami.com/bitnami'
-    - 'https://stakater.github.io/stakater-charts'
-  destinations:
-    - namespace: '*'
-      server: 'https://kubernetes.default.svc'
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
-  sourceNamespaces:
-    - argocd
+    description: Shared infrastructure components (CRDs, operators, databases, service mesh, observability)
+    sourceRepos:
+        - "https://github.com/powerstomp/yas-deployment.git"
+        - "https://charts.jetstack.io"
+        - "https://strimzi.io/charts"
+        - "https://prometheus-community.github.io/helm-charts"
+        - "https://istio-release.storage.googleapis.com/charts"
+        - "https://helm.elastic.co"
+        - "https://opensource.zalando.com/postgres-operator/charts/postgres-operator"
+        - "oci://ghcr.io/grafana-operator/helm-charts/grafana-operator"
+        - "https://open-telemetry.github.io/opentelemetry-helm-charts"
+        - "https://kiali.org/helm-charts"
+        - "https://traefik.github.io/charts"
+        - "https://akhq.io/"
+        - "https://charts.bitnami.com/bitnami"
+        - "https://stakater.github.io/stakater-charts"
+    destinations:
+        - namespace: "*"
+          server: "https://kubernetes.default.svc"
+    clusterResourceWhitelist:
+        - group: "*"
+          kind: "*"
+    sourceNamespaces:
+        - argocd
