@@ -18,9 +18,9 @@ spec:
                 profile: ambient
                 global:
                   platform: k3s
-                cni:
-                  cniBinDir: /var/lib/rancher/k3s/data/current/bin/
-                  cniConfDir: /var/lib/rancher/k3s/agent/etc/cni/net.d
+                # cni:
+                #   cniBinDir: /var/lib/rancher/k3s/data/current/bin/
+                #   cniConfDir: /var/lib/rancher/k3s/agent/etc/cni/net.d
     destination:
         server: https://kubernetes.default.svc
         namespace: istio-system
