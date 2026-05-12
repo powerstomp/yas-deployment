@@ -27,7 +27,6 @@ resources:
     - services/redis.yaml
     - services/postgres.yaml
     - services/pgadmin.yaml
-    - services/zookeeper.yaml
     - services/keycloak.yaml
     - coredns-hosts.yaml
 
