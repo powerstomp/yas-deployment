@@ -10,8 +10,8 @@ metadata:
 spec:
     project: infrastructure
     source:
-        chart: grafana-operator
-        repoURL: ghcr.io/grafana-operator/helm-charts
+        path: .
+        repoURL: oci://ghcr.io/grafana-operator/helm-charts/grafana-operator
         targetRevision: v5.0.2
     destination:
         server: https://kubernetes.default.svc
