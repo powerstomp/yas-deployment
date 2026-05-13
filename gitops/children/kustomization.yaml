@@ -8,6 +8,7 @@ resources:
 
     # CRDs — Wave -2
     - crds/keycloak-crds.yaml
+    - crds/image-updater.yaml
 
     # Operators — Wave -1
     - operators/cert-manager.yaml
@@ -20,7 +21,6 @@ resources:
     - operators/keycloak-operator.yaml
     - operators/opentelemetry-operator.yaml
     - operators/prometheus.yaml
-    - operators/image-updater.yaml
 
     # Infrastructure services — Wave 0
     - services/kafka-cluster.yaml
