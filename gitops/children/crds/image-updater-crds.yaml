@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-    name: argocd-image-updater
+    name: image-updater-crds
     namespace: argocd
     annotations:
         argocd.argoproj.io/sync-wave: "-2"
@@ -12,14 +12,17 @@ spec:
     source:
         repoURL: https://github.com/powerstomp/yas-deployment.git
         targetRevision: HEAD
-        path: deploy/image-updater
+        path: deploy/image-updater-crds
+        directory:
+            recurse: false
     destination:
         server: https://kubernetes.default.svc
         namespace: argocd
     syncPolicy:
         automated:
-            prune: true
-            selfHeal: true
+            prune: false
+            selfHeal: false
         syncOptions:
             - CreateNamespace=true
+            - Replace=true
             - ServerSideApply=true
