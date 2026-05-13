@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-    name: kube-prometheus-stack
+    name: prometheus
     namespace: argocd
     annotations:
         argocd.argoproj.io/sync-wave: "-1"
@@ -20,12 +20,10 @@ spec:
               values: |
                   crds:
                     enabled: true
-                  fullnameOverride: prometheus
                   alertmanager:
                     enabled: true
                   grafana:
                     enabled: true
-                    fullnameOverride: prometheus
                   kubeStateMetrics:
                     enabled: true
                   nodeExporter:

@@ -19,7 +19,7 @@ resources:
     - operators/grafana-operator.yaml
     - operators/keycloak-operator.yaml
     - operators/opentelemetry-operator.yaml
-    - operators/kube-prometheus-stack.yaml
+    - operators/prometheus.yaml
 
     # Infrastructure services — Wave 0
     - services/kafka-cluster.yaml
