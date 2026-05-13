@@ -1,34 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kafka-cluster
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+    name: kafka-cluster
+    namespace: argocd
+    annotations:
+        argocd.argoproj.io/sync-wave: "0"
+    finalizers:
+        - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infrastructure
-  source:
-    repoURL: https://github.com/powerstomp/yas-deployment.git
-    targetRevision: HEAD
-    path: deploy/kafka/kafka-cluster
-    helm:
-      values: |
-        kafka:
-          replicas: 1
-        zookeeper:
-          replicas: 1
-        postgresql:
-          username: yasadminuser
-          password: admin
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: kafka
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - ServerSideApply=true
+    project: infrastructure
+    source:
+        repoURL: https://github.com/powerstomp/yas-deployment.git
+        targetRevision: HEAD
+        path: deploy/kafka/kafka-cluster
+    destination:
+        server: https://kubernetes.default.svc
+        namespace: kafka
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
+        syncOptions:
+            - CreateNamespace=true
+            - ServerSideApply=true

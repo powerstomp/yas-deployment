@@ -1,3 +1,7 @@
+chunksCache:
+    enabled: false
+resultsCache:
+    enabled: false
 gateway:
     readinessProbe:
         initialDelaySeconds: 30
@@ -16,8 +20,8 @@ loki:
         replication_factor: 1
     auth_enabled: false
     limits_config:
-      ingestion_rate_mb: 100
-      ingestion_burst_size_mb: 200
+        ingestion_rate_mb: 100
+        ingestion_burst_size_mb: 200
     schemaConfig:
         configs:
             - from: "2026-01-01"
