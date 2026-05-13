@@ -1,70 +1,70 @@
 - name: backoffice-bff
   repo: ghcr.io/powerstomp/yas-backoffice-bff
-  tag: "1.2.3"
+  tag: "v1.0.3"
   host: backoffice
 - name: backoffice-ui
   repo: ghcr.io/powerstomp/yas-backoffice
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: backoffice
 - name: cart
   repo: ghcr.io/powerstomp/yas-cart
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: customer
   repo: ghcr.io/powerstomp/yas-customer
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: inventory
   repo: ghcr.io/powerstomp/yas-inventory
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: location
   repo: ghcr.io/powerstomp/yas-location
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: media
   repo: ghcr.io/powerstomp/yas-media
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: order
   repo: ghcr.io/powerstomp/yas-order
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: payment
   repo: ghcr.io/powerstomp/yas-payment
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: product
   repo: ghcr.io/powerstomp/yas-product
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: promotion
   repo: ghcr.io/powerstomp/yas-promotion
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: rating
   repo: ghcr.io/powerstomp/yas-rating
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: recommendation
   repo: ghcr.io/powerstomp/yas-recommendation
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: sampledata
   repo: ghcr.io/powerstomp/yas-sampledata
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: search
   repo: ghcr.io/powerstomp/yas-search
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: storefront-bff
   repo: ghcr.io/powerstomp/yas-storefront-bff
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: storefront
 - name: storefront-ui
   repo: ghcr.io/powerstomp/yas-storefront
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: storefront
 - name: swagger-ui
   repo: swaggerapi/swagger-ui
@@ -72,9 +72,9 @@
   host: api
 - name: tax
   repo: ghcr.io/powerstomp/yas-tax
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api
 - name: webhook
   repo: ghcr.io/powerstomp/yas-webhook
-  tag: "1.0.0"
+  tag: "v1.0.3"
   host: api

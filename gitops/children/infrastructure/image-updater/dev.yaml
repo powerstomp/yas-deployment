@@ -1,0 +1,13 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: dev
+  namespace: argocd
+spec:
+  writeBackConfig:
+    method: "git:secret:argocd/image-updater-creds"
+    gitConfig:
+      branch: "main"
+  applicationRefs:
+    - namePattern: "dev-*"
+      useAnnotations: true

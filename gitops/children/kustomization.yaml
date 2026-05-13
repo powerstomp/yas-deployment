@@ -20,6 +20,7 @@ resources:
     - operators/keycloak-operator.yaml
     - operators/opentelemetry-operator.yaml
     - operators/prometheus.yaml
+    - operators/image-updater.yaml
 
     # Infrastructure services — Wave 0
     - services/kafka-cluster.yaml
@@ -29,6 +30,10 @@ resources:
     - services/pgadmin.yaml
     - services/keycloak.yaml
     - coredns-hosts.yaml
+
+    # Image Updater — Wave 0
+    - infrastructure/image-updater/dev.yaml
+    - infrastructure/image-updater/staging.yaml
 
     # Service mesh — Wave 1
     - mesh/istiod.yaml

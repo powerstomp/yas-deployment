@@ -16,6 +16,14 @@ spec:
         metadata:
             name: "dev-{{ name }}"
             namespace: argocd
+            annotations:
+                argocd-image-updater.argoproj.io/image-list: "backend={{ repo }},ui={{ repo }}"
+                argocd-image-updater.argoproj.io/backend.update-strategy: newest-build
+                argocd-image-updater.argoproj.io/backend.helm.name: backend.image.repository
+                argocd-image-updater.argoproj.io/backend.helm.tag: backend.image.tag
+                argocd-image-updater.argoproj.io/ui.update-strategy: newest-build
+                argocd-image-updater.argoproj.io/ui.helm.name: ui.image.repository
+                argocd-image-updater.argoproj.io/ui.helm.tag: ui.image.tag
         spec:
             project: dev
             source:
@@ -28,12 +36,14 @@ spec:
                           image:
                             repository: {{ repo }}
                             tag: {{ tag }}
+                            pullPolicy: Always
                           ingress:
                             host: {{ host }}.dev.yas.local.com
                         ui:
                           image:
                             repository: {{ repo }}
                             tag: {{ tag }}
+                            pullPolicy: Always
                         image:
                           repository: {{ repo }}
                           tag: {{ tag }}
