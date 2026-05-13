@@ -7,7 +7,7 @@ resources:
     - projects/dev.yaml
 
     # CRDs — Wave -2
-    # nothing lol TODO
+    - crds/keycloak-crds.yaml
 
     # Operators — Wave -1
     - operators/cert-manager.yaml
