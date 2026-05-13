@@ -26,19 +26,19 @@ spec:
                     values: |
                         backend:
                           image:
-                            repository: {{ .repo }}
-                            tag: {{ .tag }}
+                            repository: {{ repo }}
+                            tag: {{ tag }}
                           ingress:
-                            host: {{ .host }}.dev.yas.local.com
+                            host: {{ host }}.dev.yas.local.com
                         ui:
                           image:
-                            repository: {{ .repo }}
-                            tag: {{ .tag }}
+                            repository: {{ repo }}
+                            tag: {{ tag }}
                         image:
-                          repository: {{ .repo }}
-                          tag: {{ .tag }}
+                          repository: {{ repo }}
+                          tag: {{ tag }}
                         ingress:
-                          host: {{ .host }}.dev.yas.local.com
+                          host: {{ host }}.dev.yas.local.com
             destination:
                 server: https://kubernetes.default.svc
                 namespace: yas-dev
