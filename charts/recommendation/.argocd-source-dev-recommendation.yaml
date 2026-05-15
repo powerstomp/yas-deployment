@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.name
-    value: ghcr.io/powerstomp/yas-recommendation
-    forcestring: true
-  - name: image.tag
-    value: latest@sha256:9f704f4e833d5933a435c2a1143fada2c8f1242bd5eff3363391c8650dc79f75
-    forcestring: true

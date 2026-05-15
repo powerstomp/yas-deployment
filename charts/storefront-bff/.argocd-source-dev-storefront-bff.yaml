@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.name
-    value: ghcr.io/powerstomp/yas-storefront-bff
-    forcestring: true
-  - name: image.tag
-    value: latest@sha256:2522cb511360e9db9fd00004a574d5931204d5b57fd984c56e4ff308f52b1471
-    forcestring: true

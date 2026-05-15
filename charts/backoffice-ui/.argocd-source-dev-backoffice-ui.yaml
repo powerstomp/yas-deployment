@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.name
-    value: ghcr.io/powerstomp/yas-backoffice
-    forcestring: true
-  - name: image.tag
-    value: latest@sha256:6018c4389d75dfcb61c653e1e37c95ee68b9bce4a25fa16ab0756f9799ddf5fa
-    forcestring: true

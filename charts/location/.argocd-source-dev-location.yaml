@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.name
-    value: ghcr.io/powerstomp/yas-location
-    forcestring: true
-  - name: image.tag
-    value: latest@sha256:4bc3a700968cf6288ac6ebb4111493e8b9384c58030ae956882b994d68596b70
-    forcestring: true

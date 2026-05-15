@@ -27,8 +27,7 @@ spec:
                 argocd-image-updater.argoproj.io/ui.helm.digest: ui.image.digest
                 argocd-image-updater.argoproj.io/ui.helm.tag: ui.image.tag
                 argocd-image-updater.argoproj.io/git-config: |
-                    git:
-                        writeBackTarget: helmvalues:./gitops/children/environments/dev/services.yaml
+                    writeBackTarget: helmvalues:./gitops/children/environments/dev/services.yaml
                 argocd-image-updater.argoproj.io/write-back-method: "git:secret:argocd/image-updater-creds"
         spec:
             project: dev

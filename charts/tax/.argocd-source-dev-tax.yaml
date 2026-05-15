@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.name
-    value: ghcr.io/powerstomp/yas-tax
-    forcestring: true
-  - name: image.tag
-    value: latest@sha256:1264d632537dd1b8084f7d9d87845f0153b168d6e935270b24c30e6af86e88b5
-    forcestring: true

@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.name
-    value: ghcr.io/powerstomp/yas-webhook
-    forcestring: true
-  - name: image.tag
-    value: latest@sha256:891453466ab025f804886e3661a2d8a036948e46dd460e81f778223d5894b1aa
-    forcestring: true
