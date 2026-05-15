@@ -528,8 +528,10 @@ spec:
         redirectUris:
           - {{ .Values.backofficeRedirectUrl }}/*
           - https://backoffice.yas.local.com/*
+          - https://backoffice.dev.yas.local.com/*
+          - https://backoffice.staging.yas.local.com/*
           - http://localhost:3000/*
-          - http://localhost:8087/* 
+          - http://localhost:8087/*
         webOrigins: [ ]
         notBefore: 0
         bearerOnly: false
@@ -823,6 +825,8 @@ spec:
         redirectUris:
           - {{ .Values.storefrontRedirectUrl }}/*
           - https://storefront.yas.local.com/*
+          - https://storefront.dev.yas.local.com/*
+          - https://storefront.staging.yas.local.com/*
           - http://localhost:8087/*
         webOrigins: [ ]
         notBefore: 0
