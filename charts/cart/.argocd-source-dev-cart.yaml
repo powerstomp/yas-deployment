@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: ghcr.io/powerstomp/yas-cart
+    forcestring: true
+  - name: image.tag
+    value: latest@sha256:7dc5f9b536da70870fd01d13ae5d0ed48ed2706ee33b5d2e7a2715b81567689a
+    forcestring: true
