@@ -1,80 +1,80 @@
-backoffice-bff:
+- name: backoffice-bff
   repository: ghcr.io/powerstomp/yas-backoffice-bff
   tag: "v1.0.3"
   host: backoffice
-backoffice-ui:
+- name: backoffice-ui
   repository: ghcr.io/powerstomp/yas-backoffice
   tag: "v1.0.3"
   host: backoffice
-cart:
+- name: cart
   repository: ghcr.io/powerstomp/yas-cart
   tag: "v1.0.3"
   host: api
-customer:
+- name: customer
   repository: ghcr.io/powerstomp/yas-customer
   tag: "v1.0.3"
   host: api
-inventory:
+- name: inventory
   repository: ghcr.io/powerstomp/yas-inventory
   tag: "v1.0.3"
   host: api
-location:
+- name: location
   repository: ghcr.io/powerstomp/yas-location
   tag: "v1.0.3"
   host: api
-media:
+- name: media
   repository: ghcr.io/powerstomp/yas-media
   tag: "v1.0.3"
   host: api
-order:
+- name: order
   repository: ghcr.io/powerstomp/yas-order
   tag: "v1.0.3"
   host: api
-payment:
+- name: payment
   repository: ghcr.io/powerstomp/yas-payment
   tag: "v1.0.3"
   host: api
-product:
+- name: product
   repository: ghcr.io/powerstomp/yas-product
   tag: "v1.0.3"
   host: api
-promotion:
+- name: promotion
   repository: ghcr.io/powerstomp/yas-promotion
   tag: "v1.0.3"
   host: api
-rating:
+- name: rating
   repository: ghcr.io/powerstomp/yas-rating
   tag: "v1.0.3"
   host: api
-recommendation:
+- name: recommendation
   repository: ghcr.io/powerstomp/yas-recommendation
   tag: "v1.0.3"
   host: api
-sampledata:
+- name: sampledata
   repository: ghcr.io/powerstomp/yas-sampledata
   tag: "v1.0.3"
   host: api
-search:
+- name: search
   repository: ghcr.io/powerstomp/yas-search
   tag: "v1.0.3"
   host: api
-storefront-bff:
+- name: storefront-bff
   repository: ghcr.io/powerstomp/yas-storefront-bff
   tag: "v1.0.3"
   host: storefront
-storefront-ui:
+- name: storefront-ui
   repository: ghcr.io/powerstomp/yas-storefront
   tag: "v1.0.3"
   host: storefront
-swagger-ui:
+- name: swagger-ui
   repository: swaggerapi/swagger-ui
   tag: "v4.16.0"
   host: api
-tax:
+- name: tax
   repository: ghcr.io/powerstomp/yas-tax
   tag: "v1.0.3"
   host: api
-webhook:
+- name: webhook
   repository: ghcr.io/powerstomp/yas-webhook
   tag: "v1.0.3"
   host: api
