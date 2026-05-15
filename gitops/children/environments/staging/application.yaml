@@ -24,6 +24,9 @@ spec:
                 argocd-image-updater.argoproj.io/ui.update-strategy: semver
                 argocd-image-updater.argoproj.io/ui.helm.name: ui.image.repository
                 argocd-image-updater.argoproj.io/ui.helm.tag: ui.image.tag
+                argocd-image-updater.argoproj.io/git-config: |
+                    git:
+                        writeBackTarget: helmvalues:./gitops/children/environments/staging/services.yaml
         spec:
             project: staging
             source:
