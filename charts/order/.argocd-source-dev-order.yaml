@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: ghcr.io/powerstomp/yas-order
+    forcestring: true
+  - name: image.tag
+    value: latest@sha256:a48403a867b14c2a130772b0a896c24ac82029f9fe2e6449e3e978c8eabeb7bd
+    forcestring: true
