@@ -29,6 +29,7 @@ spec:
                 argocd-image-updater.argoproj.io/git-config: |
                     git:
                         writeBackTarget: helmvalues:./gitops/children/environments/dev/services.yaml
+                argocd-image-updater.argoproj.io/write-back-method: "git:secret:argocd/image-updater-creds"
         spec:
             project: dev
             source:
