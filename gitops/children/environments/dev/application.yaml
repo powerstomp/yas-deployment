@@ -46,6 +46,9 @@ spec:
                             tag: {{ tag }}
                             digest: ""
                             pullPolicy: Always
+                          extraEnvs:
+                            - name: API_BASE_PATH
+                              value: http://storefront.dev.yas.local.com/api
                         image:
                           repository: {{ repo }}
                           tag: {{ tag }}
@@ -78,6 +81,15 @@ spec:
         repoURL: https://github.com/powerstomp/yas-deployment.git
         targetRevision: HEAD
         path: charts/yas-configuration
+        helm:
+            values: |
+                mediaApplicationConfig:
+                    yas:
+                        publicUrl: http://api.dev.yas.local.com/media
+                paymentPaypalApplicationConfig:
+                    yas:
+                        public:
+                            url: http://storefront.dev.yas.local.com/complete-payment
     destination:
         server: https://kubernetes.default.svc
         namespace: yas-dev
