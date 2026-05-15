@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: swaggerapi/swagger-ui
+    forcestring: true
+  - name: image.tag
+    value: v5.32.6
+    forcestring: true
