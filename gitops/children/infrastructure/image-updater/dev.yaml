@@ -8,6 +8,7 @@ spec:
         method: "git:secret:argocd/image-updater-creds"
         gitConfig:
             branch: "master"
+            writeBackTarget: "helmvalues:./gitops/children/environments/dev/services.yaml"
     applicationRefs:
         - namePattern: "dev-*"
           useAnnotations: true

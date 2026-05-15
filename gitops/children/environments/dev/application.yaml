@@ -17,7 +17,7 @@ spec:
             name: "dev-{{ name }}"
             namespace: argocd
             annotations:
-                argocd-image-updater.argoproj.io/image-list: "backend={{ repo }}:latest,ui={{ repo }}:latest"
+                argocd-image-updater.argoproj.io/image-list: "backend={{ repository }}:latest,ui={{ repository }}:latest"
                 argocd-image-updater.argoproj.io/backend.update-strategy: digest
                 argocd-image-updater.argoproj.io/backend.helm.name: backend.image.repository
                 argocd-image-updater.argoproj.io/backend.helm.digest: backend.image.digest
@@ -36,7 +36,7 @@ spec:
                     values: |
                         backend:
                           image:
-                            repository: {{ repo }}
+                            repository: {{ repository }}
                             tag: {{ tag }}
                             digest: ""
                             pullPolicy: Always
@@ -44,7 +44,7 @@ spec:
                             host: {{ host }}.dev.yas.local.com
                         ui:
                           image:
-                            repository: {{ repo }}
+                            repository: {{ repository }}
                             tag: {{ tag }}
                             digest: ""
                             pullPolicy: Always
@@ -52,7 +52,7 @@ spec:
                             - name: API_BASE_PATH
                               value: http://storefront.dev.yas.local.com/api
                         image:
-                          repository: {{ repo }}
+                          repository: {{ repository }}
                           tag: {{ tag }}
                         ingress:
                           host: {{ host }}.dev.yas.local.com

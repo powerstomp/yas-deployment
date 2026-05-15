@@ -1,80 +1,80 @@
-- name: backoffice-bff
-  repo: ghcr.io/powerstomp/yas-backoffice-bff
+backoffice-bff:
+  repository: ghcr.io/powerstomp/yas-backoffice-bff
   tag: "v1.0.3"
   host: backoffice
-- name: backoffice-ui
-  repo: ghcr.io/powerstomp/yas-backoffice
+backoffice-ui:
+  repository: ghcr.io/powerstomp/yas-backoffice
   tag: "v1.0.3"
   host: backoffice
-- name: cart
-  repo: ghcr.io/powerstomp/yas-cart
+cart:
+  repository: ghcr.io/powerstomp/yas-cart
   tag: "v1.0.3"
   host: api
-- name: customer
-  repo: ghcr.io/powerstomp/yas-customer
+customer:
+  repository: ghcr.io/powerstomp/yas-customer
   tag: "v1.0.3"
   host: api
-- name: inventory
-  repo: ghcr.io/powerstomp/yas-inventory
+inventory:
+  repository: ghcr.io/powerstomp/yas-inventory
   tag: "v1.0.3"
   host: api
-- name: location
-  repo: ghcr.io/powerstomp/yas-location
+location:
+  repository: ghcr.io/powerstomp/yas-location
   tag: "v1.0.3"
   host: api
-- name: media
-  repo: ghcr.io/powerstomp/yas-media
+media:
+  repository: ghcr.io/powerstomp/yas-media
   tag: "v1.0.3"
   host: api
-- name: order
-  repo: ghcr.io/powerstomp/yas-order
+order:
+  repository: ghcr.io/powerstomp/yas-order
   tag: "v1.0.3"
   host: api
-- name: payment
-  repo: ghcr.io/powerstomp/yas-payment
+payment:
+  repository: ghcr.io/powerstomp/yas-payment
   tag: "v1.0.3"
   host: api
-- name: product
-  repo: ghcr.io/powerstomp/yas-product
+product:
+  repository: ghcr.io/powerstomp/yas-product
   tag: "v1.0.3"
   host: api
-- name: promotion
-  repo: ghcr.io/powerstomp/yas-promotion
+promotion:
+  repository: ghcr.io/powerstomp/yas-promotion
   tag: "v1.0.3"
   host: api
-- name: rating
-  repo: ghcr.io/powerstomp/yas-rating
+rating:
+  repository: ghcr.io/powerstomp/yas-rating
   tag: "v1.0.3"
   host: api
-- name: recommendation
-  repo: ghcr.io/powerstomp/yas-recommendation
+recommendation:
+  repository: ghcr.io/powerstomp/yas-recommendation
   tag: "v1.0.3"
   host: api
-- name: sampledata
-  repo: ghcr.io/powerstomp/yas-sampledata
+sampledata:
+  repository: ghcr.io/powerstomp/yas-sampledata
   tag: "v1.0.3"
   host: api
-- name: search
-  repo: ghcr.io/powerstomp/yas-search
+search:
+  repository: ghcr.io/powerstomp/yas-search
   tag: "v1.0.3"
   host: api
-- name: storefront-bff
-  repo: ghcr.io/powerstomp/yas-storefront-bff
+storefront-bff:
+  repository: ghcr.io/powerstomp/yas-storefront-bff
   tag: "v1.0.3"
   host: storefront
-- name: storefront-ui
-  repo: ghcr.io/powerstomp/yas-storefront
+storefront-ui:
+  repository: ghcr.io/powerstomp/yas-storefront
   tag: "v1.0.3"
   host: storefront
-- name: swagger-ui
-  repo: swaggerapi/swagger-ui
+swagger-ui:
+  repository: swaggerapi/swagger-ui
   tag: "v4.16.0"
   host: api
-- name: tax
-  repo: ghcr.io/powerstomp/yas-tax
+tax:
+  repository: ghcr.io/powerstomp/yas-tax
   tag: "v1.0.3"
   host: api
-- name: webhook
-  repo: ghcr.io/powerstomp/yas-webhook
+webhook:
+  repository: ghcr.io/powerstomp/yas-webhook
   tag: "v1.0.3"
   host: api

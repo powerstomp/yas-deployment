@@ -17,7 +17,7 @@ spec:
             name: "staging-{{ name }}"
             namespace: argocd
             annotations:
-                argocd-image-updater.argoproj.io/image-list: "backend={{ repo }},ui={{ repo }}"
+                argocd-image-updater.argoproj.io/image-list: "backend={{ repository }},ui={{ repository }}"
                 argocd-image-updater.argoproj.io/backend.update-strategy: semver
                 argocd-image-updater.argoproj.io/backend.helm.name: backend.image.repository
                 argocd-image-updater.argoproj.io/backend.helm.tag: backend.image.tag
@@ -34,21 +34,21 @@ spec:
                     values: |
                         backend:
                           image:
-                            repository: {{ repo }}
+                            repository: {{ repository }}
                             tag: {{ tag }}
                             pullPolicy: Always
                           ingress:
                             host: {{ host }}.staging.yas.local.com
                         ui:
                           image:
-                            repository: {{ repo }}
+                            repository: {{ repository }}
                             tag: {{ tag }}
                             pullPolicy: Always
                           extraEnvs:
                             - name: API_BASE_PATH
                               value: http://storefront.staging.yas.local.com/api
                         image:
-                          repository: {{ repo }}
+                          repository: {{ repository }}
                           tag: {{ tag }}
                         ingress:
                           host: {{ host }}.staging.yas.local.com
