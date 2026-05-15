@@ -17,7 +17,7 @@ spec:
             name: "dev-{{ name }}"
             namespace: argocd
             annotations:
-                argocd-image-updater.argoproj.io/image-list: "backend={{ repository }}:{{ tag }},ui={{ repository }}:{{ tag "
+                argocd-image-updater.argoproj.io/image-list: "backend={{ repository }}:{{ tag }},ui={{ repository }}:{{ tag }}"
                 argocd-image-updater.argoproj.io/backend.update-strategy: digest
                 argocd-image-updater.argoproj.io/backend.helm.name: backend.image.repository
                 argocd-image-updater.argoproj.io/backend.helm.digest: backend.image.digest
