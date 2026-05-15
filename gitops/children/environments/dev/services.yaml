@@ -4,7 +4,7 @@
   host: backoffice
 - name: backoffice-ui
   repository: ghcr.io/powerstomp/yas-backoffice
-  tag: "latest"
+  tag: "v1.0.3"
   host: backoffice
 - name: cart
   repository: ghcr.io/powerstomp/yas-cart
