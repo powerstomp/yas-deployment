@@ -24,9 +24,7 @@ spec:
                 argocd-image-updater.argoproj.io/ui.update-strategy: semver
                 argocd-image-updater.argoproj.io/ui.helm.name: ui.image.repository
                 argocd-image-updater.argoproj.io/ui.helm.tag: ui.image.tag
-                argocd-image-updater.argoproj.io/git-config: |
-                    writeBackTarget: helmvalues:./gitops/children/environments/staging/services.yaml
-                argocd-image-updater.argoproj.io/write-back-method: "git:secret:argocd/image-updater-creds"
+
         spec:
             project: staging
             source:
@@ -61,7 +59,7 @@ spec:
             syncPolicy:
                 automated:
                     prune: true
-                    selfHeal: true
+                    selfHeal: false
                 managedNamespaceMetadata:
                     labels:
                         istio.io/dataplane-mode: ambient
