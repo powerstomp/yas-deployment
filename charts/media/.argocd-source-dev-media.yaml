@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: ghcr.io/powerstomp/yas-media
+    forcestring: true
+  - name: image.tag
+    value: latest@sha256:15b993a8446d505531bcaeda83d87940f736c7f14e1dc736db6a043013244953
+    forcestring: true
