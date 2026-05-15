@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: ghcr.io/powerstomp/yas-payment
+    forcestring: true
+  - name: image.tag
+    value: latest@sha256:7514aee7c49931bc884fd2b6a23d4c1c989e187152597dcd34be675a16b4571e
+    forcestring: true
