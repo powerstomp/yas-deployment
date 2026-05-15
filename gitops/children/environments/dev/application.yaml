@@ -21,9 +21,11 @@ spec:
                 argocd-image-updater.argoproj.io/backend.update-strategy: digest
                 argocd-image-updater.argoproj.io/backend.helm.name: backend.image.repository
                 argocd-image-updater.argoproj.io/backend.helm.digest: backend.image.digest
+                argocd-image-updater.argoproj.io/backend.helm.tag: backend.image.tag
                 argocd-image-updater.argoproj.io/ui.update-strategy: digest
                 argocd-image-updater.argoproj.io/ui.helm.name: ui.image.repository
                 argocd-image-updater.argoproj.io/ui.helm.digest: ui.image.digest
+                argocd-image-updater.argoproj.io/ui.helm.tag: ui.image.tag
         spec:
             project: dev
             source:
